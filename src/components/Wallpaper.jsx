@@ -6,9 +6,7 @@ import { FiGithub, FiLinkedin, FiMail, FiMapPin, FiCode, FiCloud } from 'react-i
 
 // High-quality background images (multiple fallbacks)
 const WALLPAPERS = [
-    "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=2070&auto=format&fit=crop"
+   "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop&w=2070"
 ];
 
 export default function Wallpaper() {
