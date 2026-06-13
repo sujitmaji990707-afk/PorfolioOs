@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        margin: 0;
+        overflow: hidden;
+        font-family: 'Fira Code', 'Menlo', 'Monaco', 'Cascadia Code', monospace;
+        -webkit-tap-highlight-color: transparent;
+        background: #0a0a0f;
+    }
+
+    ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #0a0a0f;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #3b82f6;
+        border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #06b6d4;
+    }
+}
+
+/* Glass Panel - Enhanced for better visibility */
+.glass-panel {
+    background: rgba(10, 10, 20, 0.6);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(59, 130, 246, 0.4);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.glass-panel:hover {
+    border-color: rgba(59, 130, 246, 0.6);
+    background: rgba(10, 10, 20, 0.7);
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.15);
+}
+
+@media (max-width: 768px) {
+    .glass-panel {
+        backdrop-filter: blur(12px);
+        border-radius: 12px;
+        background: rgba(10, 10, 20, 0.7);
+    }
+}
+
+/* Dock Styles */
+.dock-icon {
+    transition: all 0.2s cubic-bezier(0.34, 1.2, 0.8, 1);
+}
+
+@media (max-width: 768px) {
+    .dock-icon {
+        transform: scale(0.9);
+    }
+
+    .dock-icon:hover {
+        transform: translateY(-4px) scale(0.95);
+    }
+}
+
+@media (max-width: 480px) {
+    .dock-icon {
+        transform: scale(0.85);
+    }
+}
+
+/* Window Header */
+.window-header {
+    cursor: grab;
+}
+
+.window-header:active {
+    cursor: grabbing;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.animate-blink {
+    animation: blink 1s step-end infinite;
+}
+
+/* Wallpaper overlay fix */
+.wallpaper-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+            rgba(0, 0, 0, 0.4) 0%,
+            rgba(0, 0, 0, 0.2) 50%,
+            rgba(0, 0, 0, 0.4) 100%);
+    pointer-events: none;
+}
+
+/* Responsive Text */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    p {
+        font-size: 0.875rem;
+    }
+}
+
+/* Safe area for notched phones */
+@supports (padding: max(0px)) {
+    .safe-top {
+        padding-top: max(1rem, env(safe-area-inset-top));
+    }
+
+    .safe-bottom {
+        padding-bottom: max(1rem, env(safe-area-inset-bottom));
+    }
+}
